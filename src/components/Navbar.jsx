@@ -15,7 +15,7 @@ const Navbar = () => {
   const { logoutUser } = bindActionCreators(actionLogin, useDispatch());
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-warning py-3">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-warning py-3 fixed-top">
         <div className="container-fluid">
           <Link
             to="/"
@@ -56,16 +56,23 @@ const Navbar = () => {
               </li>
               <li className="nav-item border-right">
                 <Link to="/about" className="nav-link active text-dark">
-                  Contact Us
+                  About
                 </Link>
               </li>
               <li className="nav-item border-right">
                 <Link to="/contact" className="nav-link active text-dark">
-                  Contact Us
+                  Contact
                 </Link>
               </li>
+              <li className="nav-item border-right">
+                <Button
+                  className="nav-link active text-white"
+                  onClick={() => logoutUser()}
+                >
+                  Log out
+                </Button>
+              </li>
             </ul>
-            <Button onClick={() => logoutUser()}>Log out</Button>
           </div>
         </div>
       </nav>

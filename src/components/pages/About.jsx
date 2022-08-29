@@ -26,7 +26,7 @@ export default function About() {
           <div className="col-lg-6">
             <img
               className="img-fluid"
-              src="images/about-us.png"
+              // src="images/about-us.png"
               alt="about us image"
             />
           </div>

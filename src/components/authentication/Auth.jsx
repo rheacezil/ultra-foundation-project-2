@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Tab, Row, Col, Nav } from "react-bootstrap";
 import Login from "./Login";
 import Signup from "./Signup";
-import "./Auth.css";
 
 export default function Auth() {
   return (

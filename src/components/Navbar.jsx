@@ -4,9 +4,18 @@ import React, { useState } from "react";
 import * as actionLogin from "../redux/actions/actionLogin";
 import { useDispatch } from "react-redux/es/exports";
 import { bindActionCreators } from "redux";
-import { Button } from "react-bootstrap";
 
 import logo from "../images/site-icon-yellow.ico";
+
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
+
+import Avatar from "@mui/material/Avatar";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import Settings from "@mui/icons-material/Settings";
+import Logout from "@mui/icons-material/Logout";
 
 const Navbar = () => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
@@ -64,13 +73,35 @@ const Navbar = () => {
                   Contact
                 </Link>
               </li>
+
               <li className="nav-item border-right">
-                <Button
-                  className="nav-link active text-white"
-                  onClick={() => logoutUser()}
-                >
-                  Log out
-                </Button>
+                <PopupState variant="popover" popupId="demo-popup-menu">
+                  {(popupState) => (
+                    <React.Fragment>
+                      <Button {...bindTrigger(popupState)}>
+                        <Avatar sx={{ width: 32, height: 32 }}></Avatar>
+                      </Button>
+                      <Menu {...bindMenu(popupState)}>
+                        <MenuItem onClick={popupState.close}>Profile</MenuItem>
+                        <MenuItem onClick={popupState.close}>
+                          My account
+                        </MenuItem>
+                        <MenuItem onClick={popupState.close}>
+                          <ListItemIcon>
+                            <Settings fontSize="small" />
+                            Settings
+                          </ListItemIcon>
+                        </MenuItem>
+                        <MenuItem onClick={() => logoutUser()}>
+                          <ListItemIcon>
+                            <Logout fontSize="small" />
+                            Logout
+                          </ListItemIcon>
+                        </MenuItem>
+                      </Menu>
+                    </React.Fragment>
+                  )}
+                </PopupState>
               </li>
             </ul>
           </div>

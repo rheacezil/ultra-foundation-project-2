@@ -6,11 +6,15 @@ import Event from './pages/Event';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Footer from './Footer';
+import { StyledEngineProvider } from '@mui/material/styles';
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar/> 
+    <StyledEngineProvider injectFirst>
+      <Navbar/>
+    </StyledEngineProvider>
+      
       <br/>
         <Routes>
           <Route path='/' element={<Home />} />

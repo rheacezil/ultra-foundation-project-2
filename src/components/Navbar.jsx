@@ -82,7 +82,9 @@ const Navbar = () => {
                         <Avatar sx={{ width: 32, height: 32 }}></Avatar>
                       </Button>
                       <Menu {...bindMenu(popupState)}>
-                        <MenuItem onClick={popupState.close}>Profile</MenuItem>
+                        <MenuItem>
+                          <Link to="/profile">Profile</Link>
+                        </MenuItem>
                         <MenuItem onClick={popupState.close}>
                           My account
                         </MenuItem>
